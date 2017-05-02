@@ -14,11 +14,13 @@ class Demo1 extends Component {
 
 
   next(){
-    var curPage = ReactDOM.findDOMNode(this.refs.(page + this.state.curIndex));
+    console.log(this.page);
+  //  var curPage = ReactDOM.findDOMNode(this.refs.page3);
+  var curPage = document.getElementById("page"+this.state.curIndex);
     curPage.style.WebkitTransform = "rotateX(-90deg)";
     var curIndex = this.state.curIndex + 1;
     this.setState({curIndex: curIndex });
-    var nextPage = ReactDOM.findDOMNode(this.refs.(page + this.state.curIndex));
+    var nextPage = ReactDOM.findDOMNode(this.refs.page2);
     nextPage.style.WebkitTransform = "rotateX(0deg)";
   }
 
@@ -32,7 +34,7 @@ class Demo1 extends Component {
       <div id="my3Dpages">
         <div className="page" id="page1" ref="page1">1</div>
         <div className="page" id="page2" ref="page2">2</div>
-        <div className="page" id="page3" ref="pgae3">3</div>
+        <div className="page" id="page3" ref="page3">3</div>
         <div className="page" id="page4" ref="page4">4</div>
       </div>
         <div id="op">
