@@ -9,7 +9,7 @@ class Demo1 extends Component {
       curIndex : 0
     };
     this.next = this.next.bind(this);
-    this.previous = this.next.bind(this);
+    this.previous = this.previous.bind(this);
   }
 
 
@@ -17,18 +17,29 @@ class Demo1 extends Component {
     var curIndex = this.state.curIndex;
 
     var curPage = ReactDOM.findDOMNode(this[`_page${curIndex}`]);
-    curPage.style.WebkitTransform = "rotateX(-90deg)";
+    curPage.style.WebkitTransform = "rotateX(-91deg)";
+    curPage.style.zIndex = 11;
     curIndex = (curIndex + 1)%4;
-    this.setState({curIndex : curIndex });
 
     var nextPage = ReactDOM.findDOMNode(this[`_page${curIndex}`]);
     nextPage.style.WebkitTransform = "rotateX(0deg)";
-
+    nextPage.style.zIndex = 101;
+    this.setState({curIndex : curIndex });
     event.stopPropagation();
     event.preventDefault();
   }
 
-  previous(){
+  previous(event){
+
+    var curIndex = this.state.curIndex;
+    var curPage = ReactDOM.findDOMNode(this[`_page${curIndex}`]);
+    curPage.style.transform = "rotateX(90deg)";
+    curPage.style.zIndex = 11;
+    curIndex = (curIndex - 1 + 4) % 4;
+    var nextPage = ReactDOM.findDOMNode(this[`_page${curIndex}`]);
+    nextPage.style.transform = "rotateX(0deg)";
+    nextPage.style.zIndex = 101;
+    this.setState({curIndex : curIndex});
 
   }
   render(){
@@ -42,8 +53,8 @@ class Demo1 extends Component {
         <div className="page" id="page4" ref={(c) => this._page3 = c}>4</div>
       </div>
         <div id="op">
-          <a onClick={this.next}>next</a>&nbsp;&nbsp;&nbsp;
-          <a href={this.previous}>previous</a>
+          <span onClick={this.next}>next</span>&nbsp;&nbsp;&nbsp;
+          <span onClick={this.previous}>previous</span>
         </div>
       </div>
 

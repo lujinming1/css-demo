@@ -2,7 +2,7 @@
 
   width:400px;
   height:400px;
-  margin: 0 auto;
+  margin: 0 0 0 50px ;
 
   -webkit-perspective:800;
   -webkit-perspective-origin:50% 50%;
@@ -35,6 +35,9 @@
 
   -webkit-transform-origin:bottom;
   -webkit-transition: -webkit-transform 1s linear;
+
+  -webkit-backface-visibility: hidden;
+  z-index : 101;
 }
 
 #page2,#page3,#page4{
@@ -42,10 +45,17 @@
   -webkit-transform-origin:bottom;
   -webkit-transition:-webkit-transform 1s linear;
   -webkit-transform: rotateX(90deg);
+  -webkit-backface-visibility: hidden;
+  z-index: 11;
 }
 
 #op{
-  text-align:center;
-  margin: 40px auto;
 
+  margin: 0 0 0 90px;
+
+}
+
+span{
+  font-size:50px;
+  cursor:pointer;
 }
