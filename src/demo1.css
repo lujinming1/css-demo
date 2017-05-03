@@ -40,7 +40,7 @@
 #page2,#page3,#page4{
 
   -webkit-transform-origin:bottom;
-  -webkit-transition:-webkit-transfrom 1s linear;
+  -webkit-transition:-webkit-transform 1s linear;
   -webkit-transform: rotateX(90deg);
 }
 
